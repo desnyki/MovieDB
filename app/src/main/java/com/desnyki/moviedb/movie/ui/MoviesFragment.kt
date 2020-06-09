@@ -26,7 +26,7 @@ class MoviesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val rootView = inflater.inflate(R.layout.main_fragment, container, false)
-        viewAdapter = MovieListAdapter(::onClick)
+        viewAdapter = MovieListAdapter()
         viewManager = LinearLayoutManager(context)
         recyclerView = rootView.findViewById<RecyclerView>(R.id.list).apply {
             layoutManager = viewManager
@@ -44,13 +44,5 @@ class MoviesFragment : Fragment() {
         })
 
         return rootView
-    }
-
-    fun onClick(id:Int){
-        val action =
-            MoviesFragmentDirections.actionMainFragmentToMovieDetailFragment(
-                id
-            )
-        findNavController().navigate(action)
     }
 }

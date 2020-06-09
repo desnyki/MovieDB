@@ -3,15 +3,15 @@ package com.desnyki.moviedb.movie.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.desnyki.moviedb.databinding.ListItemMovieBinding
 import com.desnyki.moviedb.movie.data.MovieModel
 
-typealias AdapterCallbacks = (movieId: Int) -> Unit
-
-class MovieListAdapter(val callback: AdapterCallbacks) : ListAdapter<MovieModel, MovieListAdapter.MyViewHolder>(DiffCallback()) {
+class MovieListAdapter() : ListAdapter<MovieModel, MovieListAdapter.MyViewHolder>(DiffCallback()) {
 
     class MyViewHolder(
         private val binding: ListItemMovieBinding
@@ -43,8 +43,11 @@ class MovieListAdapter(val callback: AdapterCallbacks) : ListAdapter<MovieModel,
 
     private fun createOnClickListener(movie: MovieModel): View.OnClickListener {
         return View.OnClickListener {
-            callback.invoke(movie.id)
+            val action =
+            MoviesFragmentDirections.actionMainFragmentToMovieDetailFragment(movie.id)
+            it.findNavController().navigate(action)
         }
+
     }
 }
 
