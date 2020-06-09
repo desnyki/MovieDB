@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.desnyki.moviedb.data.AppDatabase
-import com.desnyki.moviedb.model.MovieModel
+import com.desnyki.moviedb.movie.data.MovieModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader

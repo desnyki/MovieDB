@@ -1,6 +1,6 @@
 package com.desnyki.moviedb.api
 
-import com.desnyki.moviedb.model.MovieModel
+import com.desnyki.moviedb.movie.data.MovieModel
 import com.desnyki.moviedb.model.PageRequest
 import retrofit2.Response
 import retrofit2.http.GET

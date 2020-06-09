@@ -1,4 +1,4 @@
-package com.desnyki.moviedb
+package com.desnyki.moviedb.movie.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,16 +10,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.desnyki.moviedb.adapter.MovieListAdapter
+import com.desnyki.moviedb.R
 import com.desnyki.moviedb.data.Result
 
 
-class MainFragment : Fragment() {
+class MoviesFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: MovieListAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MovieViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,12 +33,12 @@ class MainFragment : Fragment() {
             adapter = viewAdapter
         }
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
         viewModel.movies.observe(viewLifecycleOwner, Observer { moviesResult ->
             when(moviesResult){
                 is Result.Success ->{
-                    viewAdapter.moviesList = moviesResult.data
+                    viewAdapter.submitList(moviesResult.data)
                 }
             }
         })
@@ -48,7 +48,9 @@ class MainFragment : Fragment() {
 
     fun onClick(id:Int){
         val action =
-            MainFragmentDirections.actionMainFragmentToMovieDetailFragment(id)
+            MoviesFragmentDirections.actionMainFragmentToMovieDetailFragment(
+                id
+            )
         findNavController().navigate(action)
     }
 }

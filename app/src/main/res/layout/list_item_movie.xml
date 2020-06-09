@@ -9,7 +9,7 @@
 
         <variable
                 name="movie"
-                type="com.desnyki.moviedb.model.MovieModel"/>
+                type="com.desnyki.moviedb.movie.data.MovieModel"/>
     </data>
     <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

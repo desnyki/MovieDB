@@ -1,4 +1,4 @@
-package com.desnyki.moviedb.model
+package com.desnyki.moviedb.movie.data
 
 import com.desnyki.moviedb.api.BaseDataSource
 import com.desnyki.moviedb.api.MovieService

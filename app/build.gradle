@@ -11,9 +11,10 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion 28
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
+
     defaultConfig {
         applicationId "com.boss.sandbox"
         minSdkVersion 24

@@ -7,7 +7,7 @@
 
     <fragment
             android:id="@+id/mainFragment"
-            android:name="com.desnyki.moviedb.MainFragment"
+            android:name="com.desnyki.moviedb.movie.ui.MoviesFragment"
             android:label="MainFragment"
             tools:layout="@layout/main_fragment">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
             android:id="@+id/movieDetailFragment"
-            android:name="com.desnyki.moviedb.MovieDetailFragment"
+            android:name="com.desnyki.moviedb.movie.ui.MovieDetailFragment"
             android:label="fragment_movie_detail"
             tools:layout="@layout/fragment_movie_detail" >
         <argument

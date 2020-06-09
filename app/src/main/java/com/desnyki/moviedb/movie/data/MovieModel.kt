@@ -1,4 +1,4 @@
-package com.desnyki.moviedb.model
+package com.desnyki.moviedb.movie.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

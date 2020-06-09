@@ -1,4 +1,4 @@
-package com.desnyki.moviedb.model
+package com.desnyki.moviedb.movie.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

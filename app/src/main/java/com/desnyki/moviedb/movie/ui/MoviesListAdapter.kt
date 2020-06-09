@@ -1,22 +1,17 @@
-package com.desnyki.moviedb.adapter
+package com.desnyki.moviedb.movie.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.desnyki.moviedb.databinding.ListItemMovieBinding
-import com.desnyki.moviedb.model.MovieModel
+import com.desnyki.moviedb.movie.data.MovieModel
 
 typealias AdapterCallbacks = (movieId: Int) -> Unit
 
-class MovieListAdapter(val callback: AdapterCallbacks) :
-    RecyclerView.Adapter<MovieListAdapter.MyViewHolder>() {
-
-    var moviesList: List<MovieModel> = ArrayList()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+class MovieListAdapter(val callback: AdapterCallbacks) : ListAdapter<MovieModel, MovieListAdapter.MyViewHolder>(DiffCallback()) {
 
     class MyViewHolder(
         private val binding: ListItemMovieBinding
@@ -34,16 +29,15 @@ class MovieListAdapter(val callback: AdapterCallbacks) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
             ListItemMovieBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false))
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
     }
 
-    override fun getItemCount() = moviesList.size
-
-
     override fun onBindViewHolder(holder: MyViewHolder, i: Int) {
-
+        val movie = getItem(i)
         holder.apply {
-            bind(createOnClickListener(moviesList[i]), moviesList[i])
+            bind(createOnClickListener(movie), movie)
         }
     }
 
@@ -51,5 +45,16 @@ class MovieListAdapter(val callback: AdapterCallbacks) :
         return View.OnClickListener {
             callback.invoke(movie.id)
         }
+    }
+}
+
+private class DiffCallback : DiffUtil.ItemCallback<MovieModel>() {
+
+    override fun areItemsTheSame(oldItem: MovieModel, newItem: MovieModel): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: MovieModel, newItem: MovieModel): Boolean {
+        return oldItem == newItem
     }
 }

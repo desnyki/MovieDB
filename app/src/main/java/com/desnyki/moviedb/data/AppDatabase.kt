@@ -8,8 +8,8 @@ import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.desnyki.moviedb.model.MovieDao
-import com.desnyki.moviedb.model.MovieModel
+import com.desnyki.moviedb.movie.data.MovieDao
+import com.desnyki.moviedb.movie.data.MovieModel
 import com.desnyki.moviedb.worker.SeedDatabaseWorker
 
 @Database(entities = [MovieModel::class], version = 1, exportSchema = false)

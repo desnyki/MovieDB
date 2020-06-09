@@ -1,4 +1,4 @@
-package com.desnyki.moviedb.adapter
+package com.desnyki.moviedb.binding
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

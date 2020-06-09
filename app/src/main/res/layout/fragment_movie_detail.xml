@@ -5,12 +5,12 @@
     <data>
         <variable
                 name="movie"
-                type="com.desnyki.moviedb.model.MovieModel"/>
+                type="com.desnyki.moviedb.movie.data.MovieModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MovieDetailFragment">
+            tools:context=".movie.ui.MovieDetailFragment">
 
         <ImageView
                 android:id="@+id/movie_poster"

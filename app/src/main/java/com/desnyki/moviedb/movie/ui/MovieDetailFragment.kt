@@ -1,4 +1,4 @@
-package com.desnyki.moviedb
+package com.desnyki.moviedb.movie.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.desnyki.moviedb.R
 import com.desnyki.moviedb.data.Result
 import com.desnyki.moviedb.databinding.FragmentMovieDetailBinding
 
@@ -16,17 +17,18 @@ class MovieDetailFragment : Fragment() {
 
     val args: MovieDetailFragmentArgs by navArgs()
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: MovieViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
         val binding = DataBindingUtil.inflate<FragmentMovieDetailBinding>(
-            inflater, R.layout.fragment_movie_detail, container, false).apply {
+            inflater,
+            R.layout.fragment_movie_detail, container, false).apply {
             lifecycleOwner = this@MovieDetailFragment
         }
 
