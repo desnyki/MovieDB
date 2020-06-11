@@ -1,42 +1,16 @@
 package com.desnyki.moviedb.movie.ui
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import com.desnyki.moviedb.BuildConfig
-import com.desnyki.moviedb.api.AuthInterceptor
-import com.desnyki.moviedb.api.MovieService
-import com.desnyki.moviedb.data.AppDatabase
-import com.desnyki.moviedb.movie.data.MovieRemoteSource
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import com.desnyki.moviedb.data.Result
+import com.desnyki.moviedb.movie.data.MovieModel
 import com.desnyki.moviedb.movie.data.MovieRepository
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-class MovieViewModel(application: Application): AndroidViewModel(application) {
+class MovieViewModel @Inject constructor(private val repository: MovieRepository): ViewModel() {
 
-    private val okHttpClient = OkHttpClient()
+    val movies by lazy { repository.movies }
 
-    private val repository: MovieRepository =
-        MovieRepository(
-            AppDatabase.getInstance(application).movieDao(),
-            MovieRemoteSource(
-                Retrofit.Builder()
-                    .baseUrl(MovieService.ENDPOINT)
-                    .client(
-                        okHttpClient
-                            .newBuilder()
-                            .addInterceptor(AuthInterceptor(BuildConfig.API_DEVELOPER_BEARER_TOKEN))
-                            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-                            .build()
-                    )
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-                    .create(MovieService::class.java)
-            )
-        )
-
-    val movies = repository.movies
-    fun observeMovie(id: Int) = repository.movie(id)
+    fun observeMovie(id: Int): LiveData<Result<MovieModel>> = repository.movie(id)
 
 }

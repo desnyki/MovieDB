@@ -4,14 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.desnyki.moviedb.databinding.ListItemMovieBinding
 import com.desnyki.moviedb.movie.data.MovieModel
 
-class MovieListAdapter() : ListAdapter<MovieModel, MovieListAdapter.MyViewHolder>(DiffCallback()) {
+class MovieListAdapter : ListAdapter<MovieModel, MovieListAdapter.MyViewHolder>(DiffCallback()) {
 
     class MyViewHolder(
         private val binding: ListItemMovieBinding
@@ -47,7 +46,6 @@ class MovieListAdapter() : ListAdapter<MovieModel, MovieListAdapter.MyViewHolder
             MoviesFragmentDirections.actionMainFragmentToMovieDetailFragment(movie.id)
             it.findNavController().navigate(action)
         }
-
     }
 }
 
