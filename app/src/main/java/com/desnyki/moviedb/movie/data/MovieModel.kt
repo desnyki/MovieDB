@@ -32,4 +32,4 @@ data class MovieModel(
     @field:SerializedName("overview")
     val overview : String,
     @field:SerializedName("release_date")
-    val release_date : String)
+    val release_date : String? = null)

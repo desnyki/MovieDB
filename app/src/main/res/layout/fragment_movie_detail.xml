@@ -16,6 +16,7 @@
                 android:id="@+id/movie_poster"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="8dp"
                 android:contentDescription="movie poster image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -29,32 +30,54 @@
                 android:id="@+id/movie_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@{movie.title}"
                 tools:text="movie_title"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/movie_poster"/>
+                app:layout_constraintEnd_toEndOf="parent"
 
+                app:layout_constraintTop_toBottomOf="@+id/movie_poster"/>
+        <TextView
+                android:id="@+id/movie_release_date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Release date: "
+                tools:text="movie_release_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/movie_title"/>
         <TextView
                 android:id="@+id/movie_release_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@{movie.release_date}"
                 tools:text="movie_release_date"
-                app:layout_constraintStart_toEndOf="@id/movie_title"
-                app:layout_constraintTop_toBottomOf="@+id/movie_poster"/>
+                app:layout_constraintStart_toEndOf="@id/movie_release_date_title"
+                app:layout_constraintTop_toBottomOf="@+id/movie_title"/>
 
+        <TextView
+                android:id="@+id/movie_vote_average_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Rating: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movie_release_date_title"/>
         <TextView
                 android:id="@+id/movie_vote_average"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@{Double.toString(movie.vote_average)}"
                 tools:text="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/movie_title"/>
+                app:layout_constraintStart_toEndOf="@id/movie_vote_average_label"
+                app:layout_constraintTop_toBottomOf="@id/movie_release_date_title"/>
         <TextView
                 android:id="@+id/movie_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
                 android:text="@{movie.overview}"
                 tools:text="movie_description"
                 app:layout_constraintStart_toStartOf="parent"

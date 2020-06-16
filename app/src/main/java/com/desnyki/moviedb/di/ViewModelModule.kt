@@ -1,9 +1,7 @@
 package com.desnyki.moviedb.di
 
-import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.desnyki.moviedb.App
 import com.desnyki.moviedb.movie.ui.MovieViewModel
 import dagger.Binds
 import dagger.Module

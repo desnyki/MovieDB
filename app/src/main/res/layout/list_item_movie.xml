@@ -28,9 +28,6 @@
                 android:layout_marginStart="8dp"
                 android:scaleType="centerCrop"
                 android:contentDescription="movie poster image"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:imageFromUrl="@{movie.poster_path}"
             />
 
@@ -38,15 +35,11 @@
                 android:id="@+id/movie_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_gravity="center"
                 android:text="@{movie.title}"
                 android:textAppearance="?attr/textAppearanceListItem"
                 tools:text="movie title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="84dp"
+                android:layout_gravity="center_vertical"
             />
     </androidx.cardview.widget.CardView>
 

@@ -5,7 +5,6 @@ import com.desnyki.moviedb.App
 import com.desnyki.moviedb.MainActivity
 import com.desnyki.moviedb.movie.ui.MovieDetailFragment
 import com.desnyki.moviedb.movie.ui.MoviesFragment
-import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
