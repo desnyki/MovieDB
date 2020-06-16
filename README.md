@@ -30,7 +30,7 @@ Navigation component manages in-app navigation.
 
 Dagger 2 is used for dependency injection.
 
-Glide is used for image loading and Timber for logging.
+Glide is used for image loading.
 
 A sample app currently consist of 2 screens: List of recent movies, and movie details.
 
