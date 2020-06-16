@@ -37,7 +37,7 @@ A sample app currently consist of 2 screens: List of recent movies, and movie de
 Screenshots
 -----------
 
-![MovieDiscoveryFragment](screenshots/movies_scree.png "Browse Movies")
+![MovieDiscoveryFragment](screenshots/movies_screen.png "Browse Movies")
 ![MovieDetail](screenshots/movie_detail_screen.png "View movie detail")
 
 Libraries Used
